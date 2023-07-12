@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joy & Ocean</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      href="img/Icons8-Windows-8-Animals-Dog-Track.ico"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <script defer src="JS/background.js"></script>
+    <script defer src="JS/quotes.js"></script>
+    <script defer src="JS/clock.js"></script>
+    <script defer src="JS/greeting.js"></script>
+    <script defer src="JS/todo.js"></script>
+    <script defer src="JS/weather.js"></script>
+  </head>
+  <body id="body">
+    <div id="container">
+      <span id="clock"></span>
+      <form id="form">
+        <div id="inputBox">
+          <input
+            id="greetingBox"
+            required
+            maxlength="15"
+            type="text"
+            placeholder="Type your name"
+          />
+          <button>Log In</button>
+          <h2 id="h2"></h2>
+        </div>
+      </form>
+      <div id="todo-div">
+        <form id="todo-form">
+          <input
+            id="todo-input"
+            type="text"
+            placeholder="Write a To Do and Press Enter"
+            required
+          />
+        </form>
+        <ul id="todo-ul"></ul>
+      </div>
+      <div id="weather">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </body>
+</html>
