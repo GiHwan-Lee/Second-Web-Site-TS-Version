@@ -1,19 +1,27 @@
+// OpenWeatherMap API의 키입니다.
 const API_KEY = "appid=d1595b0c10a7b2944311a6c54d221929";
 
+// API에서 가져온 데이터의 인터페이스를 정의합니다.
 interface WeatherData {
   weather: { main: string }[];
   main: { temp: number };
   name: string;
 }
 
+// 사용자의 위치 정보를 이용해 해당 위치의 날씨 정보를 가져옵니다.
 function positions(position: GeolocationPosition) {
+  // 위도 정보를 가져옵니다.
   const lat = position.coords.latitude;
+  // 경도 정보를 가져옵니다.
   const lon = position.coords.longitude;
+  // API 요청 URL을 만듭니다.
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&${API_KEY}&units=metric`;
 
+  // API 요청을 보냅니다.
   fetch(url)
     .then((response: Response) => response.json())
     .then((data: WeatherData) => {
+      // 날씨 정보와 도시 정보를 페이지에 표시합니다.
       const weather: HTMLSpanElement | null = document.querySelector(
         "#weather span:first-child"
       );
@@ -30,8 +38,10 @@ function positions(position: GeolocationPosition) {
     });
 }
 
+// 위치 정보를 가져오는데 실패했을 때 실행되는 함수입니다.
 function onError() {
   alert("Can't find your location.");
 }
 
+// 사용자의 위치 정보를 가져옵니다.
 navigator.geolocation.getCurrentPosition(positions, onError);

@@ -1,8 +1,10 @@
+// 인용구와 저자를 나타내는 타입을 정의합니다.
 type Quote = {
   quote: string;
   author: string;
 };
 
+// 몇 가지 인용구와 저자를 배열에 저장합니다.
 const quotes: Quote[] = [
   {
     quote: "I never dreamed about success, I worked for it.",
@@ -53,16 +55,20 @@ const quotes: Quote[] = [
   },
 ];
 
+// quotes 배열에서 무작위로 인용구를 선택하기 위한 인덱스를 생성합니다.
 const quotesNum: number = Math.floor(Math.random() * quotes.length);
 
+// 인용구와 저자 이름을 표시할 HTML 요소를 생성합니다.
 const divElement: HTMLDivElement = document.createElement("div");
 divElement.classList.add("quotesClass");
 const setQuotes: HTMLSpanElement = document.createElement("span");
 const setAuthor: HTMLSpanElement = document.createElement("span");
 
+// 생성한 HTML 요소를 문서에 추가합니다.
 document.body.appendChild(divElement);
 divElement.appendChild(setQuotes);
 divElement.appendChild(setAuthor);
 
+// 선택한 인용구와 저자 이름을 HTML 요소에 설정합니다.
 setQuotes.innerText = `${quotes[quotesNum].quote} `;
 setAuthor.innerText = quotes[quotesNum].author;
